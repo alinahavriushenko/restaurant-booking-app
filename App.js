@@ -1,12 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Onboarding from './screens/Onboarding';
+import RootNavigator from './navigators/RootNavigator'
+import { NavigationContainer } from '@react-navigation/native';
+import { AuthProvider } from '../context/AuthContext';
+
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+        <AuthProvider>
+
+    <NavigationContainer style={styles.container}>
+      <RootNavigator />
+    </NavigationContainer>
+    </AuthProvider>
   );
 }
 
